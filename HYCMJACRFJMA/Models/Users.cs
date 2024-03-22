@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HYCMJACRFJMA.Models
 {
-    public class Users
+    public class  Users
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
