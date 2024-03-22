@@ -4,51 +4,75 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<div>
-    <h4>Users</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Apellido)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Apellido)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Estatus)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Estatus)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Rol)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Rol)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<style>
+    body {
+        background-color: rosybrown; /* Color de fondo suave */
+        font-family: Arial, sans-serif; /* Fuente */
+    }
+    .container {
+        margin-top: 20px;
+    }
+
+    .row {
+        margin-bottom: 10px;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+        background-color: #007bff;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .card-body dt {
+        font-weight: bold;
+    }
+
+    .action-links {
+        margin-top: 20px;
+    }
+
+        .action-links a {
+            margin-right: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+            .action-links a:hover {
+                text-decoration: underline;
+            }
+</style>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1 class="card-title">Detalles</h1>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">Usuarios</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">Nombre</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.Nombre)</dd>
+                <dt class="col-sm-2">Apellido</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.Apellido)</dd>
+                <dt class="col-sm-2">Email</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.Email)</dd>
+                <dt class="col-sm-2">Estatus</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.Estatus == 1 ? "Activo" : "Inactivo")</dd>
+                <dt class="col-sm-2">Rol</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.Rol)</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="action-links">
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Editar</a>
+        <a asp-action="Index" class="btn btn-secondary">Regresar a la Lista</a>
+    </div>
 </div>
